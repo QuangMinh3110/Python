@@ -25,28 +25,35 @@ print("4. OUTPUT_TEXT={}".format(OUTPUT_TEXT))
 s  = '--------------------------------------------------------------------------------------------------'
 print(s)
 class baimotvahai:
-    x = len(INPUT_ARRAY)
-    print('len INPUT_ARRAY = {}'.format(x))
-    for i in range(x):
-        if type(INPUT_ARRAY[i]) == int:
-            OUTPUT_INT.append(INPUT_ARRAY[i])
-        elif type(INPUT_ARRAY[i]) == str and (INPUT_ARRAY[i]) != chr:
-            OUTPUT_CHARACTER.append(INPUT_ARRAY[i])
-    print('OUTPUT_INT = {}'.format(OUTPUT_INT))
-    print('OUTPUT_CHARACTER = {}'.format(OUTPUT_CHARACTER))
-baimotvahai()
-class baiba:
-    j = len(OUTPUT_INT)
-    print('len OUTPUT_INT = {}'.format(j))
-    for k in range(j):
-        for y in range(k + 1, j):
-            if OUTPUT_INT[k] > OUTPUT_INT[y]:
-                tg = OUTPUT_INT[k]
-                OUTPUT_INT[k] = OUTPUT_INT[y]
-                OUTPUT_INT[y] = tg
-    OUTPUT_SORT_DESCENDING.append(OUTPUT_INT)
-    print("OUTPUT_SORT_DESCENDING={}".format(OUTPUT_SORT_DESCENDING))
-baiba()
+    def __init__(self, index, leninput_array, lenoutput_int):
+        self.i = index
+        self.x = leninput_array
+        self.j = lenoutput_int
+    def baigiaibaimotvahai(self):
+        print('len INPUT_ARRAY = {}'.format(self.x))
+        for self.i in range(self.x):
+            if type(INPUT_ARRAY[self.i]) == int:
+                OUTPUT_INT.append(INPUT_ARRAY[self.i])
+            elif type(INPUT_ARRAY[self.i]) == str:
+                OUTPUT_CHARACTER.append(INPUT_ARRAY[self.i])
+        print('OUTPUT_INT = {}'.format(OUTPUT_INT))
+        print('OUTPUT_CHARACTER = {}'.format(OUTPUT_CHARACTER))
+v = baimotvahai(0, len(INPUT_ARRAY), len(OUTPUT_INT))
+v.baigiaibaimotvahai()
+class baiba(baimotvahai):
+    def __init__(self, index, leninput_array, lenoutput_int):
+        super().__init__(index, leninput_array, lenoutput_int)
+    def baigiaibaiba(self):
+        print('len OUTPUT_INT= {}'.format(self.j))
+        for a in range(self.j):
+            for b in range(self.i + 1, self.j):
+                if OUTPUT_INT[a] > OUTPUT_INT[b]:
+                    tg = OUTPUT_INT[a]
+                    OUTPUT_INT[a] = OUTPUT_INT[b]
+                    OUTPUT_INT[b] = tg
+        print("OUTPUT_SORT_DESCENDING={}".format(OUTPUT_INT[1::]))
+b = baiba(0, len(INPUT_ARRAY), len(OUTPUT_INT))
+b.baigiaibaiba()
 class baibon:
     pass
 baibon()
