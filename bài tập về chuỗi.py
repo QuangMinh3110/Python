@@ -12,7 +12,8 @@ INPUT_ARRAY=[561, 's', '4', 'F', 'Z', 648, 232, '}', 762, 661, 'Q', 50, 930, '2'
 OUTPUT_INT=[]
 OUTPUT_CHARACTER=[]
 OUTPUT_SORT_DESCENDING=[]
-OUTPUT_TEXT=''
+OUTPUT_TEXT=[]
+OUTPUT_TEXT_DRAFT = []
 # --------------------------------------------------------------------------------------------------
 # -> Your code will start from next line 
 
@@ -25,60 +26,59 @@ print("3. OUTPUT_SORT_DESCENDING={}".format(OUTPUT_SORT_DESCENDING))
 print("4. OUTPUT_TEXT={}".format(OUTPUT_TEXT))
 s  = '--------------------------------------------------------------------------------------------------'
 print(s)
+x = len(INPUT_ARRAY)
 class baimotvahai:
-    def __init__(self, index, leninput_array, lenoutput_int, lenoutput_character):
-        self.i = index
-        self.x = leninput_array
-        self.j = lenoutput_int
-        self.p = lenoutput_character
+    def __init__(self):
+        pass
     def baigiaibaimotvahai(self):
-        print('len INPUT_ARRAY = {}'.format(self.x))
-        for self.i in range(self.x):
-            if type(INPUT_ARRAY[self.i]) == int:
-                OUTPUT_INT.append(INPUT_ARRAY[self.i])
-            elif type(INPUT_ARRAY[self.i]) == str:
-                OUTPUT_CHARACTER.append(INPUT_ARRAY[self.i])
+        print('len INPUT_ARRAY = {}'.format(x))
+        for i in range(x):
+            if type(INPUT_ARRAY[i]) == int:
+                OUTPUT_INT.append(INPUT_ARRAY[i])
+                global j
+                j = OUTPUT_INT
+            elif type(INPUT_ARRAY[i]) == str:
+                OUTPUT_CHARACTER.append(INPUT_ARRAY[i])
+                global p
+                p = OUTPUT_CHARACTER
+
         print('OUTPUT_INT = {}'.format(OUTPUT_INT))
         print('OUTPUT_CHARACTER = {}'.format(OUTPUT_CHARACTER))
-v = baimotvahai(0, len(INPUT_ARRAY), len(OUTPUT_INT), len(OUTPUT_CHARACTER))
+v = baimotvahai()
 v.baigiaibaimotvahai()
 class baiba(baimotvahai):
-    def __init__(self, lenoutput_int):
-        super().__init__(lenoutput_int)
+    def __init__(self):
+        pass
     def baigiaibaiba(self):
-        print('len OUTPUT_INT= {}'.format(self.j))
-        for a in range(self.j):
-            for b in range(self.i + 1, self.j):
+        print('len OUTPUT_INT= {}'.format(len(j)))
+        for a in range(0, len(j)):
+            for b in range(1, len(j)):
                 if OUTPUT_INT[a] > OUTPUT_INT[b]:
                     tg = OUTPUT_INT[a]
                     OUTPUT_INT[a] = OUTPUT_INT[b]
                     OUTPUT_INT[b] = tg
         print("OUTPUT_SORT_DESCENDING={}".format(OUTPUT_INT[1::]))
-b = baiba(len(OUTPUT_INT))
+b = baiba()
 b.baigiaibaiba()
 #class baibon:
 # print in hex mode
 #for c in VALID_DICT:
 #  print(hex(ord(c)))
 # ord --> convert chr --> int in ASCII table'
-class baibon(baimotvahai):
-    def __init__(self, lenoutput_character):
-        super().__init__(lenoutput_character)
+class baibon:
+    def __init__(self):
+        pass
     def printbaibon(self):
-        for c in range(0, self.p):
-            print("{} --> {}".format(chr(c), c))
-            if OUTPUT_CHARACTER[c] == 32 or 65 <= OUTPUT_CHARACTER[c] <= 90 or 97 <= OUTPUT_CHARACTER[c] <= 122:
-                print(chr(OUTPUT_CHARACTER[c]))
-                OUTPUT_TEXT.append(chr(OUTPUT_CHARACTER[c]))
-        print('OUTPUT_TEXT ={}'.format(OUTPUT_TEXT))
-q = baibon(len(OUTPUT_CHARACTER))
+        for c in range(0, len(p)):
+            OUTPUT_TEXT_DRAFT.append(ord(p[c]))
+        print('OUTPUT_TEXT_DRAFT = {}'.format(OUTPUT_TEXT_DRAFT))
+        h = OUTPUT_TEXT_DRAFT
+        for a in range(0, len(h)):
+            if h[a] == 32 or 65 <= h[a] <= 90 or 97 <= h[a] <= 122:
+                OUTPUT_TEXT.append(chr(h[a]))
+        print('OUTPUT_TEXT = {}'.format(' '.join(OUTPUT_TEXT)))
+q = baibon()
 q.printbaibon()
-
-
-#baibon()
-
-#print('OUTPUT_SORT_DESCENDING = {}'.format(OUTPUT_SORT_DESCENDING))
-#4. Created string OUTPUT_TEXT by extract only letter/space characters in OUTPUT_CHRACTER'''
 
 
 
